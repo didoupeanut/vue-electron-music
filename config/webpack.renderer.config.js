@@ -29,17 +29,7 @@ let rendererConfig = {
     // ...Object.keys(dependencies || {}).filter(d => !whiteListedModules.includes(d))
   ],
   module: {
-    rules: [{
-        test: /\.(js|vue)$/,
-        enforce: 'pre',
-        exclude: [/node_modules/, /utils/],
-        use: {
-          loader: 'eslint-loader',
-          options: {
-            formatter: require('eslint-friendly-formatter')
-          }
-        }
-      },
+    rules: [
       {
         test: /\.css$/,
         use: ExtractTextPlugin.extract({
@@ -105,8 +95,7 @@ let rendererConfig = {
         removeAttributeQuotes: true,
         removeComments: true
       },
-      nodeModules: process.env.NODE_ENV !== 'production' ?
-        path.resolve(__dirname, '../node_modules') : false
+      nodeModules: process.env.NODE_ENV !== 'production' ? path.resolve(__dirname, '../node_modules') : false
     }),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin()

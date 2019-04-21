@@ -2,7 +2,7 @@
 <div class="banner" @mouseout="autoPaly" @mouseover="clearAutoPlay">
   <div class="wrap">
     <div class="item " v-for="(item, index) in banner" :class="styles(index)">
-      <img :src="item.pic">
+      <img :src="item.imageUrl">
       <span class="tag">{{item.typeTitle}}</span>
     </div>
   </div>
@@ -26,6 +26,29 @@ export default {
     }
   },
   props: {
+    // adLocation: null
+    // adSource: null
+    // adid: null
+    // encodeId: "1354474063"
+    // event: null
+    // exclusive: false
+    // extMonitor: null
+    // extMonitorInfo: null
+    // imageUrl: "http://p1.music.126.net/eafqJlgelwAMPNWIC2ki6A==/109951164008462257.jpg"
+    // monitorBlackList: null
+    // monitorClick: null
+    // monitorClickList: null
+    // monitorImpress: null
+    // monitorImpressList: null
+    // monitorType: null
+    // program: null
+    // song: null
+    // targetId: 1354474063
+    // targetType: 1
+    // titleColor: "red"
+    // typeTitle: "独家"
+    // url: null
+    // video: null
     banner: {
       type: Array,
       default: []
@@ -52,11 +75,13 @@ export default {
         r: index === this.statusPlay[2]
       }
     },
+    // 轮播
     autoPaly() {
       this.autoPalyTimer = setInterval(() => {
         this.next()
       }, 2000)
     },
+    // 停止轮播
     clearAutoPlay() {
       clearInterval(this.autoPalyTimer)
     },

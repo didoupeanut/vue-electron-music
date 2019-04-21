@@ -35,6 +35,7 @@ export default {
     loadBanner() {
       const param = {}
       api.banner(param, (data) => {
+        console.log(data);
         this.banner = data.banners
       })
     }
